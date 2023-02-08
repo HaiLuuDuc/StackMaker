@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - container
+  - stack
+  - tile
+  - chestClose
+  - chestOpen
+  - chest
+  - triangle36
+  - triangle69
+  - triangle90
+  - triangle03
+  - triangle
+  - chestZoneTrigger
+  - emptyTile
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - wallLayer
+  - Water
+  - UI
+  - stack
+  - container
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
