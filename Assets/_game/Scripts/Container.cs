@@ -10,6 +10,7 @@ using UnityEngine.UI;
 
 public class Container : MonoBehaviour
 {
+    public MenuManager MenuMa;
     [SerializeField] GameObject player;
     [SerializeField] GameObject eatenStacks;
     [SerializeField] private LayerMask wallLayer;
@@ -19,7 +20,7 @@ public class Container : MonoBehaviour
     [SerializeField] Text score;
 
 
-    private float speed = 8f;
+    private float speed = 7f;
     private float stackHeight = 0.2f;
     private float triangleDelayTime = 0.2f;
     private Vector3 playerOldPosition;
@@ -30,6 +31,9 @@ public class Container : MonoBehaviour
     private Vector3 lastMousePosition;
     private Vector3 mouseDirection;
 
+    public bool isLose = false;
+    public GameObject losePanel;
+
 
     public bool onBridge=false;
     public Vector3 offset;
@@ -38,6 +42,7 @@ public class Container : MonoBehaviour
     Direction direction;
     void Start()
     {
+        losePanel.SetActive(false);
         gameManager.GetComponent<MenuManager>().HideMenu();
         Time.timeScale = 1f;
         raycastStart.transform.rotation = Quaternion.Euler(new Vector3(0, 180, 0));
@@ -47,6 +52,8 @@ public class Container : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (isLose) return;
+
         score.text = eatenStacks.transform.childCount.ToString();
         isFacingWall = CheckFacingWall();
         CheckWallFront(); // ban raycast de xac dinh targetSpot
@@ -109,9 +116,16 @@ public class Container : MonoBehaviour
         // neu di tren cau ma het stack thi dead
         if (onBridge && eatenStacks.transform.childCount == 0)
         {
-            gameManager.GetComponent<MenuManager>().Replay();
+            isLose = true;
+            losePanel.SetActive(true);
+            
         }
   
+    }
+
+    public void btn_replay()
+    {
+        MenuMa.Replay();
     }
 
     // rotate raycastStart

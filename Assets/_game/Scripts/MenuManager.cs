@@ -9,7 +9,8 @@ public class MenuManager : MonoBehaviour
     [SerializeField] GameObject menu;
     private void Start()
     {
-        menu = GameObject.Find("Menu Panel");
+        // menu = GameObject.Find("Menu Panel");
+
     }
     public void ShowMenu()
     {
