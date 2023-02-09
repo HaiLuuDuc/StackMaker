@@ -4939,7 +4939,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5260727036630266382, guid: 8ef44ca3abb424f4cb54997b650a34f9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.63
+      value: 2.66
       objectReference: {fileID: 0}
     - target: {fileID: 5260727036630266382, guid: 8ef44ca3abb424f4cb54997b650a34f9, type: 3}
       propertyPath: m_LocalPosition.z
@@ -24116,7 +24116,7 @@ MonoBehaviour:
   gameManager: {fileID: 869057827}
   score: {fileID: 1866476761}
   onBridge: 0
-  offset: {x: 0, y: 0.4, z: 0}
+  offset: {x: 0, y: 0.45, z: 0}
 --- !u!54 &2122850882
 Rigidbody:
   m_ObjectHideFlags: 0
