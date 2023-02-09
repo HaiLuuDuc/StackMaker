@@ -10,14 +10,14 @@ using UnityEngine.UI;
 
 public class Container : MonoBehaviour
 {
-    [SerializeField] MenuManager MenuMa;
     [SerializeField] GameObject player;
     [SerializeField] GameObject eatenStacks;
-    [SerializeField] private LayerMask wallLayer;
     [SerializeField] GameObject raycastStart;
-    [SerializeField] float raycastLength;
     [SerializeField] GameObject gameManager;
+    [SerializeField] float raycastLength;
+    [SerializeField] MenuManager MenuMa;
     [SerializeField] Text score;
+    [SerializeField] private LayerMask wallLayer;
 
 
     private float speed = 7f;
@@ -67,7 +67,7 @@ public class Container : MonoBehaviour
             {
                 lastMousePosition = Input.mousePosition;
                 mouseDirection = lastMousePosition - firstMousePosition;
-                if (mouseDirection.magnitude > 5f)
+                if (Vector3.Distance(firstMousePosition,lastMousePosition) > 10f)
                 {
                     if (mouseDirection.x > 0 && Mathf.Abs(mouseDirection.x) > Mathf.Abs(mouseDirection.y))
                     {
