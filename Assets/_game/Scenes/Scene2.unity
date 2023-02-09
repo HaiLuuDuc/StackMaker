@@ -20860,7 +20860,7 @@ PrefabInstance:
       objectReference: {fileID: 869057828}
     - target: {fileID: 8431866907513326233, guid: 84fb6d5fa0044944db590a651e1ed975, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Replay
+      value: GoHome
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84fb6d5fa0044944db590a651e1ed975, type: 3}
