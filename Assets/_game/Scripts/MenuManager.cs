@@ -9,11 +9,8 @@ public class MenuManager : MonoBehaviour
     [SerializeField] GameObject menu;
     [SerializeField] GameObject pausePanel;
     [SerializeField] GameObject losePanel;
-
     [SerializeField] GameObject settingsButton;
-
-
-
+    [SerializeField] GameObject levelText;
 
     private void Start()
     {
@@ -25,6 +22,7 @@ public class MenuManager : MonoBehaviour
     public void ShowMenu()
     {
         settingsButton.SetActive(false);
+        levelText.SetActive(false);
         menu.SetActive(true);
     }
     public void HideMenu()
@@ -34,6 +32,7 @@ public class MenuManager : MonoBehaviour
     public void ShowLose()
     {
         settingsButton.SetActive(false);
+        levelText.SetActive(false);
         losePanel.SetActive(true);
     }
     public void HideLose()

@@ -10,7 +10,7 @@ using UnityEngine.UI;
 
 public class Container : MonoBehaviour
 {
-    public MenuManager MenuMa;
+    [SerializeField] MenuManager MenuMa;
     [SerializeField] GameObject player;
     [SerializeField] GameObject eatenStacks;
     [SerializeField] private LayerMask wallLayer;
@@ -23,19 +23,19 @@ public class Container : MonoBehaviour
     private float speed = 7f;
     private float stackHeight = 0.2f;
     private float triangleDelayTime = 0.2f;
-    private Vector3 playerOldPosition;
+    private bool isLose = false;
     private bool isFacingWall = false;
+    private Vector3 playerOldPosition;
     private Vector3 targetSpot;
     private Vector3 directionVector;
     private Vector3 firstMousePosition;
     private Vector3 lastMousePosition;
     private Vector3 mouseDirection;
 
-    public bool isLose = false;
-
 
     public bool onBridge=false;
     public Vector3 offset;
+
 
     enum Direction { Forward, Back, Left, Right }
     Direction direction;
