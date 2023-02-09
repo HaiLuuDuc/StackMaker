@@ -25,6 +25,7 @@ public class Container : MonoBehaviour
     private float triangleDelayTime = 0.2f;
     private bool isLose = false;
     private bool isFacingWall = false;
+    private bool isTriangle = false;
     private Vector3 playerOldPosition;
     private Vector3 targetSpot;
     private Vector3 directionVector;
@@ -55,7 +56,7 @@ public class Container : MonoBehaviour
         score.text = eatenStacks.transform.childCount.ToString();
         isFacingWall = CheckFacingWall();
         CheckWallFront(); // ban raycast de xac dinh targetSpot
-        if (isFacingWall) // khi nao up mat vao tuong moi duoc di chuyen tiep
+        if (isFacingWall && !isTriangle) // khi nao up mat vao tuong moi duoc di chuyen tiep
         {
             //mouse control
             if (Input.GetMouseButtonDown(0))
@@ -243,6 +244,7 @@ public class Container : MonoBehaviour
         {
             if (other.tag == "triangle69")
             {
+                isTriangle = true;
                 if (direction == Direction.Right)
                 {
                     Invoke(nameof(TurnBack), triangleDelayTime);
@@ -254,6 +256,7 @@ public class Container : MonoBehaviour
             }
             else if (other.tag == "triangle90")
             {
+                isTriangle = true;
                 if (direction == Direction.Right)
                 {
                     Invoke(nameof(TurnForward), triangleDelayTime);
@@ -265,6 +268,7 @@ public class Container : MonoBehaviour
             }
             else if (other.tag == "triangle36")
             {
+                isTriangle = true;
                 if (direction == Direction.Left)
                 {
                     Invoke(nameof(TurnBack), triangleDelayTime);
@@ -276,6 +280,7 @@ public class Container : MonoBehaviour
             }
             else if (other.tag == "triangle03")
             {
+                isTriangle = true;
                 if (direction == Direction.Left)
                 {
                     Invoke(nameof(TurnForward), triangleDelayTime);
@@ -289,5 +294,11 @@ public class Container : MonoBehaviour
         
     }
 
-
+    private void OnTriggerExit(Collider other)
+    {
+        if(other.tag == "triangle03"|| other.tag == "triangle36" || other.tag == "triangle69" || other.tag == "triangle90")
+        {
+            isTriangle = false;
+        }
+    }
 }
