@@ -30,7 +30,7 @@ public class Container : MonoBehaviour
     private Vector3 directionVector;
     private Vector3 firstMousePosition;
     private Vector3 lastMousePosition;
-    private Vector3 mouseDirection;
+    public Vector3 mouseDirection;
 
 
     public bool onBridge=false;
@@ -67,21 +67,24 @@ public class Container : MonoBehaviour
             {
                 lastMousePosition = Input.mousePosition;
                 mouseDirection = lastMousePosition - firstMousePosition;
-                if(mouseDirection.x>0 && Mathf.Abs(mouseDirection.x)> Mathf.Abs(mouseDirection.y))
+                if (mouseDirection.magnitude > 5f)
                 {
-                    TurnRight();
-                }
-                else if (mouseDirection.x < 0 && Mathf.Abs(mouseDirection.x) > Mathf.Abs(mouseDirection.y))
-                {
-                    TurnLeft();
-                }
-                else if (mouseDirection.y > 0 && Mathf.Abs(mouseDirection.y) > Mathf.Abs(mouseDirection.x))
-                {
-                    TurnForward();
-                }
-                else if (mouseDirection.y < 0 && Mathf.Abs(mouseDirection.y) > Mathf.Abs(mouseDirection.x))
-                {
-                    TurnBack();
+                    if (mouseDirection.x > 0 && Mathf.Abs(mouseDirection.x) > Mathf.Abs(mouseDirection.y))
+                    {
+                        TurnRight();
+                    }
+                    else if (mouseDirection.x < 0 && Mathf.Abs(mouseDirection.x) > Mathf.Abs(mouseDirection.y))
+                    {
+                        TurnLeft();
+                    }
+                    else if (mouseDirection.y > 0 && Mathf.Abs(mouseDirection.y) > Mathf.Abs(mouseDirection.x))
+                    {
+                        TurnForward();
+                    }
+                    else if (mouseDirection.y < 0 && Mathf.Abs(mouseDirection.y) > Mathf.Abs(mouseDirection.x))
+                    {
+                        TurnBack();
+                    }
                 }
             }
         }
