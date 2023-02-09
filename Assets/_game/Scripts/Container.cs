@@ -84,28 +84,13 @@ public class Container : MonoBehaviour
                     TurnBack();
                 }
             }
-            /*if (Input.GetKeyDown(KeyCode.W))
-            {
-                TurnForward();
-            }
-            if (Input.GetKeyDown(KeyCode.A))
-            {
-                TurnLeft();
-            }
-            if (Input.GetKeyDown(KeyCode.S))
-            {
-                TurnBack();
-            }
-            if (Input.GetKeyDown(KeyCode.D))
-            {
-                TurnRight();
-            }*/
         }
        
 
         if (isFacingWall)
         {
             StopMoving();
+            firstMousePosition = Input.mousePosition;
         }
         else
         {
