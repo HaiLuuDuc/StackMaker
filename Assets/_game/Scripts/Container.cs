@@ -32,7 +32,6 @@ public class Container : MonoBehaviour
     private Vector3 mouseDirection;
 
     public bool isLose = false;
-    public GameObject losePanel;
 
 
     public bool onBridge=false;
@@ -42,7 +41,7 @@ public class Container : MonoBehaviour
     Direction direction;
     void Start()
     {
-        losePanel.SetActive(false);
+        MenuMa.HideLose();
         gameManager.GetComponent<MenuManager>().HideMenu();
         Time.timeScale = 1f;
         raycastStart.transform.rotation = Quaternion.Euler(new Vector3(0, 180, 0));
@@ -117,7 +116,7 @@ public class Container : MonoBehaviour
         if (onBridge && eatenStacks.transform.childCount == 0)
         {
             isLose = true;
-            losePanel.SetActive(true);
+            MenuMa.ShowLose();
             
         }
   
