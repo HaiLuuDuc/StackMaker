@@ -30,10 +30,10 @@ public class Container : MonoBehaviour
     private Vector3 directionVector;
     private Vector3 firstMousePosition;
     private Vector3 lastMousePosition;
-    public Vector3 mouseDirection;
+    private Vector3 mouseDirection;
 
 
-    public bool onBridge=false;
+    public bool onBridge = false;
     public Vector3 offset;
 
 
@@ -48,7 +48,6 @@ public class Container : MonoBehaviour
         playerOldPosition = player.transform.position;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (isLose) return;
