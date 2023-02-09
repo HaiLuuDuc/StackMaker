@@ -40,6 +40,8 @@ public class Container : MonoBehaviour
 
     enum Direction { Forward, Back, Left, Right }
     Direction direction;
+
+
     void Start()
     {
         MenuMa.HideLose();
@@ -52,10 +54,31 @@ public class Container : MonoBehaviour
     void Update()
     {
         if (isLose) return;
-
         score.text = eatenStacks.transform.childCount.ToString();
         isFacingWall = CheckFacingWall();
         CheckWallFront(); // ban raycast de xac dinh targetSpot
+        InputControl();
+
+        if (isFacingWall)
+        {
+            StopMoving();
+            firstMousePosition = Input.mousePosition;
+        }
+        else
+        {
+            Move();
+        }
+
+        // neu di tren cau ma het stack thi dead
+        if (onBridge && eatenStacks.transform.childCount == 0)
+        {
+            isLose = true;
+            MenuMa.ShowLose();
+        }
+    }
+
+    private void InputControl()
+    {
         if (isFacingWall && !isTriangle) // khi nao up mat vao tuong moi duoc di chuyen tiep
         {
             //mouse control
@@ -67,7 +90,7 @@ public class Container : MonoBehaviour
             {
                 lastMousePosition = Input.mousePosition;
                 mouseDirection = lastMousePosition - firstMousePosition;
-                if (Vector3.Distance(firstMousePosition,lastMousePosition) > 10f)
+                if (Vector3.Distance(firstMousePosition, lastMousePosition) > 10f)
                 {
                     if (mouseDirection.x > 0 && Mathf.Abs(mouseDirection.x) > Mathf.Abs(mouseDirection.y))
                     {
@@ -88,28 +111,7 @@ public class Container : MonoBehaviour
                 }
             }
         }
-       
-
-        if (isFacingWall)
-        {
-            StopMoving();
-            firstMousePosition = Input.mousePosition;
-        }
-        else
-        {
-            Move();
-        }
-
-        // neu di tren cau ma het stack thi dead
-        if (onBridge && eatenStacks.transform.childCount == 0)
-        {
-            isLose = true;
-            MenuMa.ShowLose();
-            
-        }
-  
     }
-
     public void btn_replay()
     {
         MenuMa.Replay();
