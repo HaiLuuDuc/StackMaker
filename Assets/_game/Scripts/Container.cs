@@ -81,6 +81,18 @@ public class Container : MonoBehaviour
     {
         if (isFacingWall && !isTriangle) // khi nao up mat vao tuong moi duoc di chuyen tiep
         {
+            if (Input.GetKeyDown(KeyCode.W)){
+                TurnForward();
+            }
+            else if (Input.GetKeyDown(KeyCode.S)){
+                TurnBack();
+            }
+            else if (Input.GetKeyDown(KeyCode.A)){
+                TurnLeft();
+            }
+            else if (Input.GetKeyDown(KeyCode.D)){
+                TurnRight();
+            }
             //mouse control
             if (Input.GetMouseButtonDown(0))
             {
